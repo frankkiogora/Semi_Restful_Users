@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+  <h2>Users</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr class="text text-primary">
+        <th>id</th>
+        <th>Full name</th>
+        <th>Email</th>
+        <th>Created_at</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for user in users%}
+      <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.first_name}} {{user.last_name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.created_at}}</td>
+        <td><a href="/users/{{user.id}}">Show</a> | <a href="/users/{{user.id}}/edit">Edit</a> | <a href="/users/{{user.id}}/destroy">Delete</a></td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+   <a href="/users/new"><button class="btn btn-success">Add a new User</button></a>
+</div>
+
+</body>
+</html>
+
